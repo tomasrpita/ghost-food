@@ -11,7 +11,9 @@ class HomePage extends StatelessWidget {
   final invitado = true;
   final listaDrawer = ['Inicio', 'Pedidos realizados', 'Cupón', 'Ciudad', 'Idioma',
                        'Carrito de compra', 'Mis direcciones', 'Ayuda', 'Iniciar sesión' ];
-  
+  final listaIcDrawer = [Icons.home, Icons.list, Icons.confirmation_number, Icons.settings_applications,
+                         Icons.g_translate, Icons.shopping_cart, Icons.perm_contact_calendar, 
+                         Icons.help_outline, Icons.lock_open];
 
 
   @override
@@ -21,7 +23,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Inicio'),
         centerTitle: true,
-        elevation: 4.0,
+        elevation: 0.0,
         backgroundColor: amarilloGhost ,
         actions: <Widget>[
           IconButton(
@@ -33,9 +35,10 @@ class HomePage extends StatelessWidget {
         ),
       body: Center(
          child: Column(
-          mainAxisAlignment: MainAxisAlignment.center ,
+          mainAxisAlignment: MainAxisAlignment.start ,
           children: <Widget>[
-            Text('A desplegar 4 Contenedores', style: estiloText,),
+            Image.asset('lib/src/images/top_contenedor.png'),
+            
             
           ],
 
@@ -59,22 +62,35 @@ class HomePage extends StatelessWidget {
     List<Widget> listaOpciones = [];
     listaOpciones.add(
             DrawerHeader(
-              child: Column(
+              
+              // child: Text('Invitado', textAlign: TextAlign.center, style: TextStyle(fontSize: 25)),
+             child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   // Image.asset('lib/src/images/Logo_GhostFood.png'),
-                  Text('Que pasa', textAlign: TextAlign.center,),
+                  Text('Invitado', textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
+                  
+                  Text('', textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
+
+                  Divider(height: 10.0, thickness: 3.0, 
+                          indent: 25.0, endIndent: 30.0, color: amarilloGhost,),
+                  
                   ]
-                ),
+                ), 
 
               margin: EdgeInsets.zero,
               padding: EdgeInsets.zero,
               decoration: new BoxDecoration(
-              color: amarilloGhost
+                image: DecorationImage(
+                image: ExactAssetImage('lib/src/images/Logo_GhostFood.png'),), 
+                // color: amarilloGhost */
               )
               
               ));
+    int i = 0;
     for (var opcion in listaDrawer) {
       listaOpciones..add(ListTile(
+              leading: Icon(listaIcDrawer[i]),
               title: Text(opcion),
               trailing: flecha,
               onTap: () {
@@ -84,7 +100,8 @@ class HomePage extends StatelessWidget {
                 // Navigator.pop(context);
               },
             ),)
-            ..add(Divider(height: 2.0,),);
+            ..add(Divider(height: 0.0, thickness: 3.0, indent: 60.0,), );
+      i++;
     }
     
   return listaOpciones;
