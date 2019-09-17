@@ -54,20 +54,20 @@ class HomePage extends StatelessWidget {
 
         ),
         ),
-      drawer: _creaDrawer(),
+      drawer: _creaDrawer(context),
     );
   }
 
-  Widget _creaDrawer () {
+  Widget _creaDrawer (context) {
     return Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: _opciones(listaDrawer),
+          children: _opciones(listaDrawer, context),
           )
           );
   }
 
-  List<Widget> _opciones(listaDrawer) {
+  List<Widget> _opciones(listaDrawer, context) {
 
     List<Widget> listaOpciones = [];
     listaOpciones.add(
@@ -107,7 +107,7 @@ class HomePage extends StatelessWidget {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                // Navigator.pop(context);
+                 Navigator.pop(context);
               },
             ),)
             ..add(Divider(height: 0.0, thickness: 3.0, indent: 60.0,), );
