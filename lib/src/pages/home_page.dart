@@ -38,6 +38,16 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start ,
           children: <Widget>[
             Image.asset('lib/src/images/top_contenedor.png'),
+            Expanded(
+              child:  ListView(
+              children: <Widget>[
+                Row(children: <Widget>[
+                  Expanded( child:Card(child: Text('1'),),),
+                  Expanded( child:Card(child: Text('2'),),),
+                  
+                ],)
+              ],
+            ))
             
             
           ],
