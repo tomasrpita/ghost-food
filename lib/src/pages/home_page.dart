@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ghost_food/src/pages/qr_page.dart';
 
 
 
@@ -28,7 +29,13 @@ class HomePage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
               icon: Icon(FontAwesomeIcons.qrcode),
-              onPressed: () { },
+              onPressed: () {
+                final route = MaterialPageRoute(
+                              builder: (context) => QrPage()        
+          );
+
+          Navigator.push(context, route);
+               },
             ),
         ],
         
@@ -104,10 +111,33 @@ class HomePage extends StatelessWidget {
               title: Text(opcion),
               trailing: flecha,
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                 Navigator.pop(context);
+                switch (opcion) {
+                  case "Ayuda":
+                  {
+                    Navigator.pushNamed(context, "ayuda");
+                  }
+                  
+                  break;
+                  
+                  case "Carrito de compra":
+                  {
+                    Navigator.pushNamed(context, "carritoCompra");
+                  }
+                  
+                  break;
+                  case "Inicio":
+                  {
+                    Navigator.pop(context);
+                  }
+                  
+                  break;
+                  default:
+                  {
+                    Navigator.pushNamed(context, "login");
+                  }
+                }
+
+                 
               },
             ),)
             ..add(Divider(height: 0.0, thickness: 3.0, indent: 60.0,), );
