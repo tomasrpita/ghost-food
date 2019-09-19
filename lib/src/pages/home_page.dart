@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
         title: Text('Inicio'),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: amarilloGhost ,
+        
         actions: <Widget>[
           IconButton(
               icon: Icon(FontAwesomeIcons.qrcode),

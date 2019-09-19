@@ -18,7 +18,14 @@ class MyApp extends StatelessWidget {
         return MaterialPageRoute(
             builder: (context) => HomePage(),
         );
-      }
+
+      },
+       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Color.fromARGB(233, 233, 222, 15),
+          
+        )
+      ),
     );
   }
 }
